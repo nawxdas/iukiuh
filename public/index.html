@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset=utf-8>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hi from Begin!</title>
-  <link rel="stylesheet" href="https://static.begin.app/starter/default.css">
-  <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
-</head>
-<body>
-  <div class="center-text">
-    <img src="https://static.begin.app/starter/begin-logo.svg" style="max-width: 250px" class="center-text">
-    <div style="margin-bottom: 24px">
-      <h1 style="margin-bottom: 24px" class="center-text">
-        Howdy, Beginner!
-      </h1>
-      <p style="margin-bottom: 8px">
-        Get started by editing this file at:
-      </p>
-      <code>
-        public/index.html
-      </code>
-    </div>
-    <div>
-      <p style="margin-bottom: 8px">
-        View documentation at:
-      </p>
-      <a class="link" href="https://docs.begin.com" target="_blank">https://docs.begin.com</a>
-    </div>
-  </div>
-  <script type="module" src="index.js"></script>
-</body>
-</html>
+<script>
+var link = document.location +"";
+var data = link.split("?");
+var link= data[[data.length - 1]];
+var s=link.split("-");
+var newLink="";
+for(i=0;i<s.length;i++){
+	s[i]=s[i].replace(/^c.*/g, '&utm_campaign=c');
+	s[i]=s[i].replace(/^o.*/g, '&utm_campaign=o');
+	s[i]=s[i].replace(/^l.*/g, '&utm_campaign=l');
+	s[i]=s[i].replace(/^u.*/g, '&utm_campaign=u');
+	s[i]=s[i].replace(/^s.*_/g, '&utm_source=');
+	s[i]=s[i].replace(/^e.*_/g, '&em=');
+	newLink=newLink+s[i];
+}
+
+if(newLink!=null && newLink.length>10){
+	window.location.replace("http://zone.colinabrett.me.uk/?" + newLink);
+}else{
+	window.location.replace("http://zone.colinabrett.me.uk/404");
+}
+</script>
